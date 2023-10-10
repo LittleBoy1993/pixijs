@@ -438,7 +438,10 @@ export default class Sprite extends Container
     {
         super.destroy(options);
 
-        this._texture.off('update', this._onTextureUpdate, this);
+        if (this._texture)
+        {
+            this._texture.off('update', this._onTextureUpdate, this);
+        }
 
         this._anchor = null;
 
